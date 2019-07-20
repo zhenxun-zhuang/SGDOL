@@ -30,6 +30,5 @@ Finally, after backward(), simply call:
 '''
 optimizer.step()
 '''
-```
 
 For your convenience, I also included a simple example of running a small neural network on the MNIST network.

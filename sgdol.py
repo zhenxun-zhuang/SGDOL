@@ -15,6 +15,8 @@
 
 # ==============================================================================
 
+import os
+
 from torch.optim import Optimizer
 
 class SGDOL(Optimizer):
@@ -119,6 +121,9 @@ class SGDOL(Optimizer):
             self._lr = lr_next
 
             # Write the step-size to log.
+            if not os.path.exists('logs'):
+                os.makedirs('logs')
+
             lr_fname = ''.join(['logs/lr_SGDOL_',
                                 '{0}_{1}'.format(
                                     self._smoothness,

@@ -48,11 +48,11 @@ Optional arguments:
 --seed                random seed (default: 0)
 --train-epochs        number of epochs to train (default: 30)
 --train-batchsize     batchsize in training (default: 100)
---dataroot DATAROOT   location to save the dataset
+--dataroot            location to save the dataset (default: ./data)
 --optim-method        choose from {SGDOL,Adam,SGD,Adagrad}, the optimizer to be employed (default: SGDOL)
 --smoothness          to be used in SGDOL (default: 10)
 --alpha               to be used in SGDOL (default: 10)
 --lr                  learning rate of the chosen optimizer (default: 0.001)
 ```
 
-It will download the MNIST dataset into "dataroot" directory, then use the selected optimizer together with its parameters to train a CNN model. This CNN model consists of two 5*5 convolution layers each of which is activated using ReLU and then maxpooled, followed by two fully connected layers. At the end of each epoch, the last updated model would be evaluated over all training samples to compute the training loss. And after the training is finished, the trained model would be evaluated on the test dataset to compute the test accuracy. All training losses and the test accuracy would be saved to two separate files in the "logs" directory. 
+It will download the MNIST dataset into the specified "dataroot" directory, then use the selected optimizer together with its parameters to train a CNN model. This CNN model consists of two 5*5 convolution layers each of which is activated using ReLU and then maxpooled, followed by two fully connected layers. At the end of each epoch, the last updated model would be evaluated over all training samples to compute the training loss. And after the training is finished, the trained model would be evaluated on the test dataset to compute the test accuracy. All training losses and the test accuracy would be saved to two separate files in the "logs" directory. 

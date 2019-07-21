@@ -63,20 +63,19 @@ if __name__ == "__main__":
     optim_method = args.optim_method
     if optim_method == 'SGDOL':
         optimizer = SGDOL(net.parameters(),
-						  smoothness=args.smoothness,
-						  alpha=args.alpha)
+                          smoothness=args.smoothness,
+                          alpha=args.alpha)
     elif optim_method == 'SGD':
         optimizer = optim.SGD(net.parameters(),
-							  lr=args.lr)
+                              lr=args.lr)
     elif optim_method == 'Adagrad':
         optimizer = optim.Adagrad(net.parameters(),
-								  lr=args.lr)
+                                  lr=args.lr)
     elif optim_method == 'Adam':
         optimizer = optim.Adam(net.parameters(),
-							   lr=args.lr)
+                               lr=args.lr)
     else:
-        raise ValueError("Invalid optimization method: {}".format(
-			optim_method))
+        raise ValueError("Invalid optimization method: {}".format(optim_method))
 
     # Train the model.
     all_train_losses = []

@@ -13,7 +13,7 @@ We refer the interested reader to the [paper](https://arxiv.org/abs/1901.09068) 
 
 Here you will find the SGDOL algorithm equipped with the Follow-The-Regularized-Leader-Proximal online learning algorithm.   
 
-To use this optimization method, you basically do what you should do with AdaGrad, Adam, etc. Specifically, first import it by:
+To use this optimization method, basically do what you normally do with AdaGrad, Adam, etc. Specifically, first import it by:
 
 ```
 from sgdol import SGDOL

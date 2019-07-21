@@ -36,10 +36,10 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-	# Set the random seed for reproducibility.
+    # Set the random seed for reproducibility.
     torch.manual_seed(args.seed)
 
-	# Load data.
+    # Load data.
     kwargs = {}
     dataset_info = mnist_data_loader(root_dir=args.dataroot,
                                      batch_size=args.train_batchsize,
@@ -52,14 +52,14 @@ if __name__ == "__main__":
     use_cuda = args.use_cuda and torch.cuda.is_available()
     device = torch.device("cuda:0" if use_cuda else "cpu")
 
-	# Initialize the neural network model and move it to GPU if needed.
+    # Initialize the neural network model and move it to GPU if needed.
     net = MNISTConvNet()
     net.to(device)
 
-	# Define the loss function.
+    # Define the loss function.
     criterion = nn.CrossEntropyLoss()    
 
-	# Select optimizer.
+    # Select optimizer.
     optim_method = args.optim_method
     if optim_method == 'SGDOL':
         optimizer = SGDOL(net.parameters(),
@@ -78,7 +78,7 @@ if __name__ == "__main__":
         raise ValueError("Invalid optimization method: {}".format(
 			optim_method))
 
-	# Train the model.
+    # Train the model.
     all_train_losses = []
     for epoch in range(args.train_epochs):
         # Train the model for one epoch.
@@ -94,7 +94,7 @@ if __name__ == "__main__":
             loss.backward()
             optimizer.step()
 
-		# Evaluate the trained model over all training samples.
+        # Evaluate the trained model over all training samples.
         net.eval()
 
         running_loss = 0.0
@@ -110,7 +110,7 @@ if __name__ == "__main__":
         all_train_losses.append(avg_train_loss)
         print('Epoch %d: Training Loss: %.4f' % (epoch + 1, avg_train_loss))
 
-	# Evaluate the test error of the final model.
+    # Evaluate the test error of the final model.
     net.eval()
     correct = 0
     total = 0

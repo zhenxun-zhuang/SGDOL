@@ -34,7 +34,7 @@ class SGDOL(Optimizer):
     - smoothness (float, optional): the assumed smoothness of the loss
           function (default: 10).
     - alpha (float, optional): the parameter alpha used in the inital
-		  regularizer, a rule of thumb is to set it as smoothness (default: 10)
+          regularizer, a rule of thumb is to set it as smoothness (default: 10)
     """
 
     def __init__(self, params, smoothness=10.0, alpha=10.0):

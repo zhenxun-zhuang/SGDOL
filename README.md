@@ -31,7 +31,7 @@ Finally, after backward(), simply call:
 optimizer.step()
 ```
 
-Note that I choose to record the step-size sequence learned during training, together with the two quantities (the sum of inner products and the sum of gradients norm squared) used to compute the step-size. To disable outputting this information, simply comment Lines 122-130.
+Note that I choose to record the step-size sequence learned during training, together with the two quantities (the sum of inner products and the sum of gradients norm squared) used to compute the step-size. To disable outputting this information, simply comment the block "Write the step-size to log" (Lines 124-135).
 
 ### Example
 For your convenience, I also included a simple example of running a small neural network on the MNIST dataset. To run it, simply enter the "MNIST" directory, and use:

@@ -22,7 +22,7 @@ if __name__ == "__main__":
     parser.add_argument('--train-batchsize', type=int, default=100,
                         help='batchsize in training (default: 100)')        
     parser.add_argument('--dataroot', type=str, default='./data',
-                        help='location to save the dataset')
+                        help='location to save the dataset (default: ./data)')
     parser.add_argument('--optim-method', type=str, default='SGDOL',
                         choices=['SGDOL', 'Adam', 'SGD', 'Adagrad'],
                         help='the optimizer to be employed (default: SGDOL)')

@@ -1,5 +1,6 @@
 # Stochastic Gradient Descent with Online Learning
 PyTorch implementation of SGDOL from the paper:
+
 **[Surrogate Losses for Online Learning of Stepsizes in Stochastic Non-Convex Optimization](https://arxiv.org/abs/1901.09068)**  
 Zhenxun Zhuang, Ashok Cutkosky, Francesco Orabona
 
@@ -13,38 +14,45 @@ We refer the interested reader to the [paper](https://arxiv.org/abs/1901.09068) 
 Here you will find the SGDOL algorithm equipped with the Follow-The-Regularized-Leader-Proximal online learning algorithm.   
 
 To use this optimization method, you basically do what you should do with AdaGrad, Adam, etc. Specifically, first import it by:
-'''
+
+```
 from sgdol import SGDOL
-'''
+```
 
 Then tell your model to use SGDOL as the optimizer:
-'''
+
+```
 optimizer = SGDOL(net.parameters(), smoothness=10, alpha=10)
-'''
+```
 
 Finally, after backward(), simply call:
-'''
+
+```
 optimizer.step()
-'''
+```
 
 Note that I choose to record the step-size sequence learned during training, together with the two quantities (the sum of inner products and the sum of gradients norm squared) used to compute the step-size. To disable outputting this information, simply comment Lines 122-130.
 
 ### Example
 For your convenience, I also included a simple example of running a small neural network on the MNIST dataset. To run it, simply enter the "MNIST" directory, and use:
-'''
+
+```
 python main.py
-'''
+```
 
 Optional arguments:
+
+```
 -h, --help            show this help message and exit
 --use-cuda            allow the use of CUDA (default: False)
 --seed                random seed (default: 0)
 --train-epochs        number of epochs to train (default: 30)
---train-batchsize 	  batchsize in training (default: 100)
+--train-batchsize     batchsize in training (default: 100)
 --dataroot DATAROOT   location to save the dataset
 --optim-method        choose from {SGDOL,Adam,SGD,Adagrad}, the optimizer to be employed (default: SGDOL)
 --smoothness          to be used in SGDOL (default: 10)
 --alpha               to be used in SGDOL (default: 10)
 --lr                  learning rate of the chosen optimizer (default: 0.001)
+```
 
 It will download the MNIST dataset into "dataroot" directory, then use the selected optimizer together with its parameters to train a CNN model. This CNN model consists of two 5*5 convolution layers each of which is activated using ReLU and then maxpooled, followed by two fully connected layers. At the end of each epoch, the last updated model would be evaluated over all training samples to compute the training loss. And after the training is finished, the trained model would be evaluated on the test dataset to compute the test accuracy. All training losses and the test accuracy would be saved to two separate files in the "logs" directory. 

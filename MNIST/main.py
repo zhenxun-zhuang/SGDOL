@@ -87,11 +87,13 @@ if __name__ == "__main__":
             inputs, labels = data
             inputs, labels = inputs.to(device), labels.to(device)
 
-            optimizer.zero_grad()
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
+            num_grads = 1 if args.optim_method != 'SGDOL' else 2
+            for _ in range(num_grads):
+                optimizer.zero_grad()
+                outputs = net(inputs)
+                loss = criterion(outputs, labels)
+                loss.backward()
+                optimizer.step()
 
         # Evaluate the trained model over all training samples.
         net.eval()

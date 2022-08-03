@@ -1,8 +1,9 @@
 # Stochastic Gradient Descent with Online Learning
 PyTorch implementation of SGDOL from the paper:
 
-**[Surrogate Losses for Online Learning of Stepsizes in Stochastic Non-Convex Optimization](https://arxiv.org/abs/1901.09068)**  
-Zhenxun Zhuang, Ashok Cutkosky, Francesco Orabona
+**[Surrogate Losses for Online Learning of Stepsizes in Stochastic Non-Convex Optimization](https://proceedings.mlr.press/v97/zhuang19a.html)**  
+Zhenxun Zhuang, Ashok Cutkosky, Francesco Orabona.
+Proceedings of the 36th International Conference on Machine Learning, PMLR 97:7664-7672, 2019.
 
 ### Description
 Non-convex optimization has attracted lots of attention in recent years, and many algorithms have been developed to tackle this problem. Many of these algorithms are based on the Stochastic Gradient Descent (SGD) proposed by Robbins & Monro over 60 years ago. SGD is intuitive, efficient, and easy to implement. However, it requires a hand-picked parameter, the stepsize, for (fast) convergence, which is notoriously tedious and time-consuming to tune. Over the last several years, a plethora of adaptive gradient-based algorithms have emerged to ameliorate this problem. They have proved efficient in reducing the labor of tuning in practice, but many of them lack theoretic guarantees even in the convex setting. In this paper, we propose new surrogate losses to cast the problem of learning the optimal stepsizes for the stochastic optimization of a non-convex smooth objective function onto an online convex optimization problem. This allows the use of no-regret online algorithms to compute optimal stepsizes on the fly. In turn, this results in a SGD algorithm with self-tuned stepsizes that guarantees convergence rates that are automatically adaptive to the level of noise. 
